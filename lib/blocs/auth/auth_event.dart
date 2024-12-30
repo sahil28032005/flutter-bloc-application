@@ -13,4 +13,21 @@ class AuthLoginEvent extends AuthEvent {
 class AuthLogoutEvent extends AuthEvent {}
 
 //register event
+class AuthRegisterEvent extends AuthEvent {
+  final String username;
+  final String password;
+  final String email;
 
+  AuthRegisterEvent(
+      {required this.username, required this.password, required this.email});
+}
+
+//fogot password evnent
+class AuthForgotPasswordEvent extends AuthEvent {
+  final String email;
+
+  AuthForgotPasswordEvent({required this.email});
+}
+
+//authCheckEvent
+class AuthCheckEvent extends AuthEvent {}
