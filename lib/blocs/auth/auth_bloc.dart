@@ -4,12 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
 
+// handles auth events and emits states basde on events
+
+// yield is used in Dart when working with asynchronous streams (a sequence of values over time).
+//when authblock starts initial state is set to authInitial state
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthInitialState());
-
-  @override
+  //this method listens for incoming events and maps to state
   Stream<AuthState> mapEventToState(AuthEvent event) async* {
     if (event is AuthLoginEvent) {
+      print('in auth_bloc emitting authloading state');
       yield AuthLoadingState();
       try {
         // Simulate authentication process
@@ -28,3 +32,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 }
+
+//quick notes:
+// It’s like return, but instead of finishing the function, it gives a value to the stream and keeps the function alive for further execution.
