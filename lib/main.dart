@@ -1,6 +1,7 @@
 import 'package:expence_tracker/blocs/auth/auth_bloc.dart';
 import 'package:expence_tracker/screens/auth_screen.dart';
 import 'package:expence_tracker/screens/dashboard.dart';
+import 'package:expence_tracker/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,10 +21,11 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          initialRoute: '/dashboard',
+          initialRoute: '/register',
           routes: {
             '/login': (context) => LoginScreen(),
             '/dashboard': (context) => DashboardScreen(),
+            '/register': (context) => RegisterScreen(),
           },
         ));
   }
